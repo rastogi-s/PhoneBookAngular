@@ -14,7 +14,7 @@ export class UpdateContactComponent implements OnInit {
   id: string;
 
   constructor(private contactService: ContactService, private activatedRoute: ActivatedRoute,
-              private router: Router) {
+              public router: Router) {
     this.activatedRoute.params.subscribe(param => {
       this.id = param.id;
     });
