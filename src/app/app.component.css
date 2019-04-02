@@ -1,0 +1,25 @@
+
+.childContainer {
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  min-height: 650px;
+  margin: 2rem auto 10px;
+  align-content: center;
+  max-height: 750px;
+  color: #ffffff;
+  border-radius: 20px;
+}
+
+.mainContainer {
+  position: relative;
+}
+
+@media only screen and (min-width: 1027px) {
+  .childContainer {
+    max-width: 30%;
+
+  }
+}

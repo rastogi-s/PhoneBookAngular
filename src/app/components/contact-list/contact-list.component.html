@@ -1,0 +1,45 @@
+<div class="tab-content" id="mycontent">
+  <div id="myRecordList" role="tabpanel" class="tab-pane fade show active">
+    <app-search (messageEvent)="updateList($event)"></app-search>
+    <div class="list-group mt-3" id="recordList">
+      <div class="list-group-item list-group-item-action recordItem pl-0 h-0" data-toggle="collapse"
+           [attr.data-target]="'#details' + contact._id" *ngFor="let contact of filterList">
+        <div class="row mx-1">
+          <div class="col-sm-0.5 mx-2">
+            <i class="fa fa-1x fa-user bg-primary p-2 rounded-circle"></i>
+          </div>
+          <div class="col text-left align-center ">
+            <!--<div class="row">-->
+            <label class="lastName p-0">{{contact.lastname}}</label>,&nbsp;
+            <label class="firstName p-0">{{contact.firstname}}</label>
+            <!--</div>-->
+            <!--<div class="row  d-none">-->
+
+            <!--</div>-->
+          </div>
+          <div class="col-sm-0.1 mr-2">
+            <i class="fas fa-trash-alt btn deleteBtn p-0" role="button" (click)="deleteContact(contact._id)"></i>
+          </div>
+          <div class="col-sm-0.1 ml-1">
+            <i class="fas fa-edit btn editBtn p-0" role="button" data-toggle="modal"
+               data-target="#exampleModalCenter" (click)="editContact(contact._id)"></i>
+          </div>
+          <div class="collapse  w-100 detailsDiv text-left" id="details{{contact._id}}" data-parent="#recordList">
+            <hr class="w-100 mx-2">
+            <div class="row">
+              <div class="col">
+                <i class="fa fa-envelope m-2 ml-3"></i><span class="text-muted email">{{contact.email}}</span> <br>
+                <i class="fa fa-phone m-2 ml-3"></i><span class="text-muted phone">{{contact.phone}}</span>
+              </div>
+              <div class="col-sm-0.1">
+                <i class="fa fa-2x fa-paper-plane btn share p-0 float-right mr-3"
+                   data-toggle="modal"
+                   data-target="#shareModal"> </i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
