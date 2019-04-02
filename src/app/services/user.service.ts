@@ -20,12 +20,12 @@ export class UserService {
   urlDeleteProfile: string;
 
   constructor() {
-    let base;
-    if (!location.toString().includes('localhost')) {
-      base = '';
-    } else {
-      base = 'http://localhost:5500';
-    }
+    const base = 'https://webdev-rastogi-shubham.herokuapp.com';
+    // if (!location.toString().includes('localhost')) {
+    //   base = 'https://webdev-rastogi-shubham.herokuapp.com';
+    // } else {
+    //   base = 'http://localhost:5500';
+    // }
     this.url = base + '/api/user';
     this.urlRegister = base + '/api/register';
     this.urlLoggedUser = base + '/api/profile';
