@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   usernameExists: boolean;
   successMsg: boolean;
 
-  constructor(private router: Router,
+  constructor(public router: Router,
               private service: UserService) {
     this.usernameExists = false;
     this.successMsg = false;

@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   password: string;
   badUserNamePass: boolean;
 
-  constructor(private router: Router, private userService: UserService) {
+  constructor(public router: Router, private userService: UserService) {
     this.badUserNamePass = false;
   }
 
