@@ -1,3 +1,45 @@
-<p>
-  register works!
-</p>
+<form class="needs-validation mt-3" #form="ngForm">
+  <h3 class="mt-2 mb-3 sub-heading">Sign Up</h3>
+  <div class="alert alert-danger" [hidden]="!usernameExists">
+    Username already exists user another one !
+  </div>
+  <div class="input-group mb-3 mt-5">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">UserName</span>
+    </div>
+    <input type="text" [(ngModel)]="user.username" name="username" placeholder="Username"
+           id="username" class="form-control" required #userName="ngModel">
+    <div [hidden]="userName.valid || userName.pristine" class="mt-2 alert alert-danger">
+      Username required!!
+    </div>
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default2">Password</span>
+    </div>
+    <input type="password" placeholder="123qwe#$" [(ngModel)]="user.password" name="password"
+           id="password" class="form-control" required #pass="ngModel">
+    <div [hidden]="pass.valid || pass.pristine" class="mt-2 alert alert-danger">
+      Password required!!
+    </div>
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default3">Password</span>
+    </div>
+    <input type="password" placeholder="123qwe#$" id="verifypass"
+           [(ngModel)]="verifyPassword" name="verifyPassword" class="form-control" [pattern]="user.password" required
+           #vPass="ngModel">
+    <div [hidden]="vPass.valid || vPass.pristine" class="mt-2 alert alert-danger">
+      Password do not match!!
+    </div>
+  </div>
+
+  <button type="button" (click)="register(); form.reset(); "
+          [disabled]="!form.form.valid"
+          class="btn btn-success form-control" id="signup">Sign Up
+  </button>
+  <a class="btn float-left cursorAdd" (click)="router.navigate(['/login'])">Sign In</a>
+</form>

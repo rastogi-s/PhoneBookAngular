@@ -1,5 +1,5 @@
 #recordList{
-  max-height: 430px;
+  max-height: 330px;
   overflow-y:scroll;
 
 }
@@ -26,6 +26,6 @@
 }
 
 
-i{
+i,.cursorAdd{
   cursor:pointer;
 }
